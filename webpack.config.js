@@ -17,16 +17,25 @@ module.exports = {
 				use: {
 					loader: "ts-loader",
 					options: {
-						getCustomTransformers: () => ({
-							before: [ReactRefreshTypeScript()],
-						}),
+						// getCustomTransformers: () => ({
+						// 	before: [ReactRefreshTypeScript()],
+						// }),
 						transpileOnly: true,
 					},
 				},
 			},
 			{
 				test: /.s?css$/,
-				use: ["style-loader", "css-loader", "sass-loader"],
+				use: [
+					"style-loader",
+					{
+						loader: "css-loader",
+						options: {
+							modules: true,
+						},
+					},
+					"sass-loader",
+				],
 			},
 			{
 				test: /\.(jpg|png|jpeg)$/i,
@@ -58,6 +67,14 @@ module.exports = {
 		static: {
 			directory: path.join(__dirname, "public"),
 		},
+		proxy: {
+			"/fetch": "http://localhost:3000",
+		},
+		client: {
+			// in browser display progress of complied
+			progress: true,
+		},
+		historyApiFallback: true, //始终用index.html返回任何路由
 		compress: true,
 		port: 9000,
 		open: true,
