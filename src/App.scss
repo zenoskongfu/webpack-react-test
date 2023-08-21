@@ -1,45 +1,5 @@
 .app {
-  // background-color: cyan;
-
-  .table {
-    .tr {
-      display: flex;
-      width: 80vw;
-      line-height: 24px;
-      font-size: 24px;
-
-    }
-
-    .thead {
-      .tr {
-        // font-size: 18px;
-        // lin
-        background-color: gainsboro;
-
-        .th {
-          border: 1px black solid;
-          text-align: center;
-        }
-      }
-    }
-
-    .tbody {
-      .tr {
-        background-color: aliceblue;
-
-        .td {
-          border: 1px black solid;
-          text-align: center;
-        }
-      }
-    }
-
-    .th,
-    .td {
-      $width: var(--flex-width);
-      width: calc($width * 10%);
-    }
+  .h1 {
+    background-color: aqua;
   }
-
-
 }
